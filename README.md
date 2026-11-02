@@ -173,12 +173,3 @@ Abre **http://127.0.0.1:8000**. El generador usa el puerto local 5000. El paquet
 ## Código Android del kiosco
 
 `fichaje_app` contiene el código fuente del kiosco, sin APK compilado, claves de firma ni configuración personal del IDE. Abre la carpeta con Android Studio. La aplicación usa un identificador de paquete propio (`com.example.fichajesapp.demo`) y el nombre MMQP demo. Su URL predeterminada, `http://10.0.2.2:8080/`, conecta el emulador Android con esta demo en Docker. Para cambiarla compila con la propiedad Gradle `-PMMQP_DEMO_URL=http://10.0.2.2:8000/` si usas Laravel local, o con la URL del servidor de demo accesible desde el dispositivo físico. La URL debe terminar en `/`. Esta propiedad genera `BuildConfig.DEMO_BASE_URL`; no hay que modificar el código de la API.
-
-## Nuevo repositorio y enlace de LinkedIn
-
-El repositorio es **[MarioLimones/MMQP-demo](https://github.com/MarioLimones/MMQP-demo)**. Contiene una copia independiente, sin el historial Git del proyecto original. El `.gitignore` excluye bases, `.env`, almacenamiento, copias de seguridad y dependencias. Los assets web compilados se incluyen para que también estén en la descarga de GitHub.
-
-El ZIP es el proyecto instalable, no un alojamiento publicado. Para compartir un enlace interactivo en LinkedIn, despliega esta copia en un servidor con Docker y configura `MMQP_DEMO_URL` con su URL pública y `MMQP_DEMO_PORT` con el puerto HTTP del contenedor. Por ejemplo, antes de `docker compose up --build -d`, define `MMQP_DEMO_URL=https://tu-demo.example` y sitúa el servicio detrás del HTTPS de tu alojamiento. Las cuentas de arriba permiten que los visitantes prueben los perfiles.
-
-Los visitantes con acceso al mismo despliegue comparten los cambios sobre los datos ficticios. La demo no envía correos ni notificaciones push reales y debe utilizarse siempre con información inventada.
-días) y noviembre (30 días). Pruebas relacionadas: 93 PHP (612 aserciones) y dos pruebas DOM/Alpine de persistencia y cierre.
