@@ -1,0 +1,509 @@
+.calendar-day-short,
+.calendar-date-short,
+.calendar-options-toggle {
+    display: none;
+}
+
+.calendar-secondary-actions,
+.calendar-options-panel {
+    display: contents;
+}
+
+.navigation-settings-topbar {
+    display: none;
+}
+
+.global-calendar-page .calendar-orientation-hint {
+    display: none;
+}
+
+.global-calendar-page .calendar-week-selector > :focus-visible,
+.schedule-table-scroll:focus-visible {
+    outline: 3px solid #ef4444;
+    outline-offset: -3px;
+}
+
+@media screen and (min-width: 1024px) {
+    .global-calendar-page .calendar-role {
+        margin-bottom: 80px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    /* A phone in landscape must keep the mobile navigation, even above sm. */
+    .global-calendar-page .app-shell {
+        flex-direction: column;
+        padding-bottom: calc(64px + env(safe-area-inset-bottom));
+    }
+
+    .global-calendar-page .app-navigation {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: 0;
+    }
+
+    .global-calendar-page .app-mobile-topbar {
+        display: flex;
+    }
+
+    .global-calendar-page .app-navigation-brand {
+        display: none;
+    }
+
+    .global-calendar-page .app-navigation-reveal {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: grid-template-rows 140ms cubic-bezier(0.4, 0, 1, 1), opacity 100ms ease-in, visibility 0s 140ms;
+    }
+
+    .global-calendar-page .app-navigation-reveal.calendar-menu-open {
+        grid-template-rows: 1fr;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transition: grid-template-rows 180ms cubic-bezier(0.2, 0, 0, 1), opacity 140ms ease-out, visibility 0s;
+    }
+
+    .global-calendar-page .app-navigation-content {
+        display: flex;
+        height: auto;
+        min-height: 0;
+        max-height: 70dvh;
+        overflow: hidden;
+    }
+
+    .global-calendar-page .app-navigation-links {
+        min-height: 0;
+        padding-top: 12px;
+    }
+
+    .global-calendar-page .app-bottom-navigation {
+        display: block;
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .global-calendar-page #main-content-wrapper {
+        padding-block: 12px;
+        min-height: 0;
+    }
+
+    .global-calendar-page .calendar-content {
+        padding-inline: max(12px, env(safe-area-inset-left)) max(12px, env(safe-area-inset-right));
+    }
+
+    .global-calendar-page .calendar-toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 6px 8px;
+        margin-bottom: 12px;
+        align-items: center;
+    }
+
+    .global-calendar-page .calendar-week-selector {
+        grid-column: 1 / -1;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .global-calendar-page .calendar-week-selector > button {
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .global-calendar-page .calendar-week-selector > input {
+        flex: 1;
+        width: auto;
+        min-width: 0;
+        min-height: 44px;
+        max-width: none;
+        font-size: 16px;
+        padding-inline: 8px;
+    }
+
+    .global-calendar-page .calendar-actions {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        gap: 8px;
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .global-calendar-page .calendar-actions button {
+        min-height: 44px;
+    }
+
+    .global-calendar-page .calendar-date-range {
+        grid-column: 1;
+        grid-row: 2;
+        text-align: left;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .global-calendar-page .calendar-secondary-actions {
+        display: block;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .global-calendar-page .calendar-options-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 8px 12px;
+        min-height: 44px;
+    }
+
+    .global-calendar-page .calendar-options-toggle:focus-visible {
+        outline: 3px solid #ef4444;
+        outline-offset: 2px;
+    }
+
+    .global-calendar-page .calendar-options-panel {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        z-index: 30;
+        width: min(280px, calc(100vw - 24px));
+        padding: 8px;
+        border-width: 1px;
+        border-radius: 14px;
+        box-shadow: 0 12px 28px rgb(0 0 0 / 18%);
+    }
+
+    .global-calendar-page .calendar-options-panel.calendar-options-open {
+        display: grid;
+        gap: 8px;
+    }
+
+    .global-calendar-page .calendar-options-panel .calendar-edit {
+        display: block;
+    }
+
+    .global-calendar-page .calendar-options-panel button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .global-calendar-page .calendar-orientation-hint {
+        grid-column: 1 / -1;
+        grid-row: 4;
+        display: block;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .global-calendar-page .calendar-save-status {
+        grid-column: 2;
+        grid-row: 2;
+        font-size: 11px;
+        line-height: 18px;
+        text-align: right;
+        color: #475569;
+    }
+
+    .dark .global-calendar-page .calendar-save-status {
+        color: #cbd5e1;
+    }
+
+    .global-calendar-page .calendar-save-status > p:nth-child(2) {
+        display: none;
+    }
+
+    .global-calendar-page .calendar-role {
+        margin-bottom: 32px;
+        border-radius: 16px;
+        box-shadow: none;
+    }
+
+    .global-calendar-page .calendar-role-heading {
+        padding: 8px 12px;
+    }
+
+    .global-calendar-page .calendar-role-heading h3 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .global-calendar-page .calendar-content .schedule-table {
+        table-layout: fixed;
+        min-width: 746px;
+    }
+
+    .global-calendar-page .schedule-table-scroll {
+        scrollbar-width: thin;
+        color-scheme: light;
+    }
+
+    .dark .global-calendar-page .schedule-table-scroll {
+        color-scheme: dark;
+    }
+
+    .global-calendar-page .calendar-content .schedule-table th,
+    .global-calendar-page .calendar-content .schedule-table td {
+        padding: 6px 4px;
+    }
+
+    .global-calendar-page .calendar-content .schedule-table th:first-child {
+        width: 88px;
+        min-width: 88px;
+        letter-spacing: 0;
+    }
+
+    .global-calendar-page .calendar-content .schedule-table th:not(:first-child):not(:last-child) {
+        min-width: 0;
+        letter-spacing: 0;
+    }
+
+    .global-calendar-page .calendar-content .schedule-table th:last-child {
+        width: 56px;
+        letter-spacing: 0;
+    }
+
+    .global-calendar-page .calendar-day-full {
+        display: none;
+    }
+
+    .global-calendar-page .calendar-day-short {
+        display: inline;
+        font-size: 12px;
+    }
+
+    .global-calendar-page .calendar-day-date {
+        color: #475569;
+    }
+
+    .global-calendar-page .calendar-date-full,
+    .global-calendar-page .calendar-day-total-redundant {
+        display: none;
+    }
+
+    .global-calendar-page .calendar-date-short {
+        display: inline;
+    }
+
+    .dark .global-calendar-page .calendar-day-date {
+        color: #cbd5e1;
+    }
+
+    .global-calendar-page .calendar-employee-name {
+        overflow-wrap: anywhere;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 1.4;
+    }
+
+    .global-calendar-page .calendar-content .schedule-table tbody td:first-child {
+        background: #fff;
+    }
+
+    .dark .global-calendar-page .calendar-content .schedule-table tbody td:first-child {
+        background: #0f172a;
+    }
+
+    .global-calendar-page .calendar-shift {
+        padding: 6px 3px;
+    }
+
+    .global-calendar-page .calendar-shift-time {
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.025em;
+    }
+
+    .global-calendar-page #pwa-install-container {
+        bottom: calc(80px + env(safe-area-inset-bottom));
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .global-calendar-page .navigation-settings-footer {
+        display: none;
+    }
+
+    .global-calendar-page .navigation-settings-topbar {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        flex-shrink: 0;
+    }
+
+    .global-calendar-page .navigation-settings-topbar .navigation-theme-toggle {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        color: #475569;
+    }
+
+    .dark .global-calendar-page .navigation-settings-topbar .navigation-theme-toggle {
+        color: #cbd5e1;
+    }
+
+    .global-calendar-page .navigation-settings-topbar .navigation-theme-label,
+    .global-calendar-page .navigation-settings-topbar .navigation-account-role {
+        display: none;
+    }
+
+    .global-calendar-page .navigation-settings-topbar .navigation-account-toggle {
+        width: clamp(104px, 12vw, 112px);
+        min-height: 44px;
+        padding: 4px 6px;
+        gap: 6px;
+        border-radius: 10px;
+    }
+
+    .global-calendar-page .navigation-settings-topbar .navigation-account-avatar {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+
+    .global-calendar-page .navigation-settings-topbar .navigation-account-name {
+        font-size: 12px;
+    }
+
+    .global-calendar-page .navigation-settings-topbar .navigation-account-menu {
+        inset: 100% 0 auto auto;
+        width: 192px;
+        max-width: calc(100vw - 32px);
+        margin: 6px 0 0;
+    }
+
+    .global-calendar-page .navigation-settings-topbar .navigation-account-menu a,
+    .global-calendar-page .navigation-settings-topbar .navigation-account-menu button {
+        min-height: 44px;
+    }
+
+    .global-calendar-page .navigation-settings-topbar button:focus-visible,
+    .global-calendar-page .navigation-settings-topbar a:focus-visible {
+        outline: 2px solid #ef4444;
+        outline-offset: -2px;
+    }
+}
+
+@media screen and (max-width: 389px) {
+    .global-calendar-page .app-mobile-topbar > a > span {
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    .global-calendar-page .navigation-settings-topbar .navigation-account-toggle {
+        width: 44px;
+        padding: 10px;
+        gap: 0;
+    }
+
+    .global-calendar-page .navigation-settings-topbar .navigation-account-details,
+    .global-calendar-page .navigation-settings-topbar .navigation-account-chevron {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1023px) and (orientation: landscape) {
+    .global-calendar-page .app-navigation-content {
+        /* Keep the panel height; tighter top spacing leaves room below the links. */
+        max-height: 11.25rem;
+    }
+
+    .global-calendar-page .app-shell {
+        padding-bottom: 0;
+    }
+
+    .global-calendar-page .app-mobile-topbar {
+        height: 48px;
+    }
+
+    .global-calendar-page .app-bottom-navigation,
+    .global-calendar-page #pwa-install-container {
+        display: none;
+    }
+
+    .global-calendar-page #main-content-wrapper {
+        padding-block: 12px;
+    }
+
+    .global-calendar-page .calendar-toolbar {
+        display: grid;
+        grid-template-columns: minmax(280px, 1fr) auto;
+        gap: 6px 12px;
+        margin-bottom: 12px;
+        align-items: center;
+    }
+
+    .global-calendar-page .calendar-week-selector {
+        grid-column: 1;
+        grid-row: 1;
+        justify-content: flex-start;
+    }
+
+    .global-calendar-page .calendar-week-selector > input {
+        flex: 0 1 200px;
+    }
+
+    .global-calendar-page .calendar-actions {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        width: auto;
+        justify-content: flex-end;
+    }
+
+    .global-calendar-page .calendar-date-range {
+        text-align: left;
+        font-size: 12px;
+    }
+
+    .global-calendar-page .calendar-edit,
+    .global-calendar-page .calendar-save-status {
+        display: none;
+    }
+
+    .global-calendar-page .calendar-orientation-hint {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        text-align: left;
+    }
+
+    .global-calendar-page .calendar-content .schedule-table th,
+    .global-calendar-page .calendar-content .schedule-table td {
+        padding: 6px 4px;
+    }
+
+    .global-calendar-page .calendar-role-heading {
+        padding-block: 8px;
+    }
+}
+
+@media screen and (max-width: 639px) and (orientation: landscape) {
+    .global-calendar-page .calendar-options-toggle {
+        width: 44px;
+        padding: 8px;
+    }
+
+    .global-calendar-page .calendar-options-toggle > span {
+        display: none;
+    }
+}
+
+/* Keep the dates with their week selector on every screen size. */
+.global-calendar-page .calendar-week-heading {
+    grid-column: 1 / -1;
+    min-width: 0;
+}
+
+@media (min-width: 1024px) {
+    .global-calendar-page .calendar-week-heading {
+        grid-column: 1;
+        grid-row: 1;
+        align-items: flex-start;
+    }
+}

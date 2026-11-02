@@ -1,0 +1,2 @@
+# Extraccion determinista de PDFs de texto, independiente del OCR.
+pypdf>=6.1,<7

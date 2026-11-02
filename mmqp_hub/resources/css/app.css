@@ -1,0 +1,13 @@
+@import './global-calendar.css';
+@import './arqueo.css';
+@import './consumos.css';
+@import './consumos-history.css';
+@import './schedule-adjustment.css';
+@import './schedule-preview.css';
+@import './accessibility.css';
+@import './employee-profile.css';
+@import './demo-help.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

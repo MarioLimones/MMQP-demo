@@ -1,0 +1,19 @@
+/* The avatar repeats the adjacent employee name and is decorative. Its initial
+   stays visual without becoming part of the account button's text label. */
+.navigation-account-avatar::before {
+    content: attr(data-initial);
+}
+
+/* FullCalendar dims whole neighbouring-month date labels by default. Keep the
+   secondary tone while retaining readable date text in both application themes. */
+.fc .fc-day-other .fc-daygrid-day-top {
+    opacity: 1;
+}
+
+.fc .fc-day-other .fc-daygrid-day-number {
+    color: #475569;
+}
+
+.dark .fc .fc-day-other .fc-daygrid-day-number {
+    color: #cbd5e1;
+}

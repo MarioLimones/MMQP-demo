@@ -1,0 +1,413 @@
+/* Scoped to this dialog: no filtered backdrop or continuously animated decoration. */
+.schedule-adjustment__positioner {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+.schedule-adjustment__backdrop {
+    background-color: rgb(15 23 42 / 0.8);
+}
+
+.schedule-adjustment__panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1024px;
+    height: min(820px, calc(100vh - 48px));
+    height: min(820px, calc(100dvh - 48px));
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 22px;
+    text-align: left;
+    box-shadow: 0 20px 60px rgb(0 0 0 / 0.2);
+    isolation: isolate;
+    transition-property: opacity, transform;
+}
+
+.schedule-adjustment__header,
+.schedule-adjustment__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex: none;
+    padding: 20px 24px;
+}
+
+.schedule-adjustment__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    flex: none;
+}
+
+.schedule-adjustment__title {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+}
+
+.schedule-adjustment__subtitle {
+    margin-top: 3px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.schedule-adjustment__body {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.schedule-adjustment__roles {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 216px;
+    gap: 6px;
+    padding: 20px 12px;
+    border-right-width: 1px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.schedule-adjustment__role {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-width: 0;
+    min-height: 54px;
+    padding: 10px;
+    border-width: 1px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.schedule-adjustment__role-name {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.schedule-adjustment__role span[class*="bg-"] {
+    padding: 4px 6px;
+    border-radius: 6px;
+    box-shadow: none;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.schedule-adjustment__content {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    padding: 24px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    contain: layout style;
+}
+
+.schedule-adjustment__summary {
+    margin-bottom: 24px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgb(148 163 184 / 0.2);
+}
+
+.schedule-adjustment__summary-layout {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.schedule-adjustment__totals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+}
+
+.schedule-adjustment__status {
+    margin-top: 12px;
+    line-height: 1.5;
+}
+
+.schedule-adjustment__status svg {
+    width: 16px;
+    height: 16px;
+    flex: none;
+}
+
+.schedule-adjustment__balance {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: none;
+    min-height: 42px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Columns follow the dialog's available space, rather than the viewport breakpoint. */
+.schedule-adjustment__employees {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 12px;
+}
+
+.schedule-adjustment__employee {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-width: 0;
+    min-height: 92px;
+    padding: 14px 12px;
+    border-radius: 12px;
+}
+
+.schedule-adjustment__person {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 10px;
+    min-width: 0;
+}
+
+.schedule-adjustment__lock {
+    width: 36px;
+    height: 40px;
+    border-radius: 9px;
+}
+
+.schedule-adjustment__contract {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 4px;
+    margin-top: 4px;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.schedule-adjustment__stepper {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex: none;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.schedule-adjustment__step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 40px;
+    border-radius: 7px;
+}
+
+.schedule-adjustment__hours {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48px;
+}
+
+.schedule-adjustment .schedule-adjustment__input {
+    width: 100%;
+    min-width: 0;
+    height: 26px;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    font-variant-numeric: tabular-nums;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    box-shadow: none;
+}
+
+.schedule-adjustment__input::-webkit-inner-spin-button,
+.schedule-adjustment__input::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+.schedule-adjustment__hours-label {
+    margin-top: 2px;
+    font-size: 9px;
+    line-height: 12px;
+}
+
+.schedule-adjustment__hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 420px;
+    line-height: 1.5;
+}
+
+.schedule-adjustment__hint svg {
+    flex: none;
+}
+
+.schedule-adjustment__actions {
+    display: flex;
+    gap: 10px;
+    flex: none;
+}
+
+.schedule-adjustment__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.schedule-adjustment__control {
+    transition-property: color, background-color, border-color;
+    transition-duration: 120ms;
+    transition-timing-function: ease-out;
+}
+
+.schedule-adjustment button:focus-visible,
+.schedule-adjustment input:focus-visible {
+    outline: 2px solid #f87171;
+    outline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+    .schedule-adjustment__positioner {
+        padding: 12px;
+    }
+
+    .schedule-adjustment__panel {
+        height: calc(100vh - 24px);
+        height: calc(100dvh - 24px);
+        border-radius: 16px;
+    }
+
+    .schedule-adjustment__header,
+    .schedule-adjustment__footer {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .schedule-adjustment__header > div {
+        gap: 10px;
+        min-width: 0;
+    }
+
+    .schedule-adjustment__header > button {
+        flex: none;
+    }
+
+    .schedule-adjustment__title {
+        font-size: 18px;
+    }
+
+    .schedule-adjustment__subtitle {
+        font-size: 12px;
+    }
+
+    .schedule-adjustment__body {
+        flex-direction: column;
+    }
+
+    .schedule-adjustment__roles {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        flex: none;
+        gap: 6px;
+        padding: 10px 12px;
+        border-right-width: 0;
+        border-bottom-width: 1px;
+    }
+
+    .schedule-adjustment__role {
+        min-height: 44px;
+        padding: 8px;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .schedule-adjustment__role-name {
+        font-size: 11px;
+    }
+
+    .schedule-adjustment__content {
+        padding: 18px 12px;
+    }
+
+    .schedule-adjustment__summary {
+        margin-bottom: 18px;
+        padding-bottom: 18px;
+    }
+
+    .schedule-adjustment__hint {
+        display: none;
+    }
+
+    .schedule-adjustment__actions {
+        flex: 1;
+    }
+
+    .schedule-adjustment__action {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .schedule-adjustment__action:last-child {
+        flex-grow: 1.5;
+    }
+}
+
+@media (pointer: coarse) {
+    .schedule-adjustment__step,
+    .schedule-adjustment__lock {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .schedule-adjustment *,
+    .schedule-adjustment *::before,
+    .schedule-adjustment *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
+
+    .schedule-adjustment__panel,
+    .schedule-adjustment button,
+    .schedule-adjustment svg {
+        transform: none !important;
+    }
+}

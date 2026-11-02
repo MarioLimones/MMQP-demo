@@ -1,0 +1,36 @@
+name: mmqp-demo
+
+services:
+  demo:
+    build: .
+    ports:
+      - "${MMQP_DEMO_PORT:-8080}:80"
+    environment:
+      APP_NAME: MMQP Demo
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_URL: "${MMQP_DEMO_URL:-http://localhost:8080}"
+      DEMO_MODE: "true"
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /var/lib/mmqp-demo/database.sqlite
+      DB_URL: ""
+      MAIL_MAILER: array
+      QUEUE_CONNECTION: sync
+      CACHE_STORE: file
+      SESSION_DRIVER: file
+      PYTHON_PATH: /opt/venv/bin/python
+      CONSUMO_PDF_PYTHON: /opt/venv/bin/python
+    volumes:
+      - demo_data:/var/lib/mmqp-demo
+      - demo_storage:/var/www/html/mmqp_hub/storage
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://127.0.0.1/up"]
+      interval: 30s
+      timeout: 5s
+      start_period: 60s
+      retries: 3
+
+volumes:
+  demo_data:
+  demo_storage:

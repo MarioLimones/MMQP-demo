@@ -1,0 +1,2 @@
+# Native text extraction for theoretical consumption reports (no OCR).
+pdfplumber>=0.11.4,<0.12
